@@ -1,12 +1,22 @@
 import React from "react";
+import BotCard from "./BotCard";
+import { v4 as uuidv4 } from "uuid";
 
-function BotCollection() {
-  // Your code here
+function BotCollection({ showBots, addNewBot, deleteBot }) {
   return (
     <div className="ui four column grid">
       <div className="row">
-        {/*...and here..*/}
-        Collection of all bots
+        {showBots.map((bot) => {
+          return (
+            <BotCard
+              key={uuidv4()}
+              bot={bot}
+              addNewBot={addNewBot}
+              deleteBot={deleteBot}
+            />
+          );
+        })}
+        {/* Collection of all bots */}
       </div>
     </div>
   );
